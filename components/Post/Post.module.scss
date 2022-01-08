@@ -7,3 +7,13 @@
   border-radius: 8px !important;
   margin-bottom: 30px !important;
 }
+
+.actions {
+  list-style: none;
+  position: relative;
+  top: 5px;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
