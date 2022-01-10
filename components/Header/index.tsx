@@ -5,8 +5,8 @@ import {
   SearchOutlined as SearchIcon,
   CreateOutlined as PenIcon,
   Menu as MenuIcon,
-  SmsOutlined as NotificationIcon,
-  NotificationsOutlined as MessageIcon,
+  NotificationsOutlined as NotificationIcon,
+  SmsOutlined as MessageIcon,
   ExpandMoreOutlined as ArrowBottomIcon,
 } from "@mui/icons-material";
 
@@ -34,11 +34,12 @@ export const Header: React.FC = () => {
           <SearchIcon />
           <input placeholder="Поиск" />
         </div>
-
-        <Button variant="contained" className={styles.penButton}>
-          Новая запись
-          <PenIcon />
-        </Button>
+        <Link href="/write" passHref>
+          <Button variant="contained" className={styles.penButton}>
+            Новая запись
+            <PenIcon />
+          </Button>
+        </Link>
       </div>
       <div className="d-flex align-center">
         <IconButton>
