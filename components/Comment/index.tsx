@@ -5,12 +5,13 @@ import styles from "./Comment.module.scss";
 
 interface CommentProps {
   user: {
-    fullname: string;
+    fullName: string;
   };
   text: string;
+  createdAt: string;
 }
 
-export const Comment: React.FC<CommentProps> = ({ user, text }) => {
+export const Comment: React.FC<CommentProps> = ({ user, text, createdAt }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -29,7 +30,7 @@ export const Comment: React.FC<CommentProps> = ({ user, text }) => {
           alt="Avatar"
         />
         <b>Master Oogway</b>
-        <span>5 часов</span>
+        <span>{createdAt}</span>
       </div>
       <Typography className={styles.text}>
         «Роскосмос»: вероятность столкновения астероида Апофис с Землёй «очень и

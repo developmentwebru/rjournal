@@ -3,53 +3,64 @@ import ArrowRightIcon from "@material-ui/icons/NavigateNextOutlined";
 
 import styles from "./SideComments.module.scss";
 
-const items = [
+export const comments = [
   {
+    id: 1,
     user: {
-      fullname: "Вася Пупкин",
+      fullName: "Вася Пупкин",
+      avatarUrl: "http://batona.net/uploads/posts/2018-04/1524549377_01.jpg",
     },
     text: "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
     post: {
       title: "Какая у вас дома ванна?",
     },
+    createdAt: new Date().toString(),
   },
   {
+    id: 2,
     user: {
-      fullname: "Вася Пупкин",
+      fullName: "Вася Пупкин",
+      avatarUrl: "http://batona.net/uploads/posts/2018-04/1524549377_01.jpg",
     },
     text: "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
     post: {
       title: "Какая у вас дома ванна?",
     },
+    createdAt: new Date().toString(),
   },
   {
+    id: 3,
     user: {
-      fullname: "Вася Пупкин",
+      fullName: "Вася Пупкин",
+      avatarUrl: "http://batona.net/uploads/posts/2018-04/1524549377_01.jpg",
     },
     text: "Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…",
     post: {
       title: "Какая у вас дома ванна?",
     },
+    createdAt: new Date().toString(),
   },
 ];
 
 interface CommentItemProps {
   user: {
-    fullname: string;
+    fullName: string;
+    avatarUrl: string;
   };
   text: string;
   post: {
     title: string;
   };
+  createdAt: string;
 }
 
 const CommentItem: React.FC<CommentItemProps> = ({ user, text, post }) => {
   return (
     <div className={styles.commentItem}>
       <div className={styles.userInfo}>
-        <img src="https://leonardo.osnova.io/598fc957-a3f6-598c-b6f9-a033c3941d12/-/scale_crop/64x64/-/format/webp/" />
+        <img src={user.avatarUrl} />
         <a href="#">
-          <b>{user.fullname}</b>
+          <b>{user.fullName}</b>
         </a>
       </div>
       <p className={styles.text}>{text}</p>
@@ -66,7 +77,7 @@ export const SideComments = () => {
       <h3>
         Комментарии <ArrowRightIcon />
       </h3>
-      {items.map((obj) => (
+      {comments.map((obj) => (
         <CommentItem {...obj} key={obj.id} />
       ))}
     </div>
