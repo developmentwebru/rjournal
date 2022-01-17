@@ -7,7 +7,7 @@ import styles from "./FullPost.module.scss";
 export default function FullPost() {
   return (
     <Paper elevation={0} className={styles.paper}>
-      <div style={{ margin: "0 auto", width: 680 }}>
+      <div className="container">
         <Typography variant="h4" className={styles.title}>
           10 самых безумных историй 2021 года из мира финансов: деньги из
           ниоткуда и в никуда
