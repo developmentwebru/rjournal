@@ -8,12 +8,24 @@ import {
   NotificationsOutlined as NotificationIcon,
   SmsOutlined as MessageIcon,
   ExpandMoreOutlined as ArrowBottomIcon,
+  AccountCircleOutlined as UserIcon,
 } from "@mui/icons-material";
 
 import styles from "./Header.module.scss";
 import Link from "next/link";
+import { AuthDialog } from "../AuthDialog";
 
 export const Header: React.FC = () => {
+  const [authVisible, setAuthVisible] = React.useState(false);
+
+  const openAuthDialog = () => {
+    setAuthVisible(true);
+  };
+
+  const closeAuthDialog = () => {
+    setAuthVisible(false);
+  };
+
   return (
     <Paper classes={{ root: styles.root }} elevation={0}>
       <div className="d-flex align-center">
@@ -48,7 +60,7 @@ export const Header: React.FC = () => {
         <IconButton>
           <NotificationIcon />
         </IconButton>
-        <Link href="/profile/1">
+        {/* <Link href="/profile/1">
           <a className="d-flex align-center">
             <Avatar
               className={styles.avatar}
@@ -58,8 +70,13 @@ export const Header: React.FC = () => {
 
             <ArrowBottomIcon />
           </a>
-        </Link>
+        </Link> */}
+        <div className={styles.loginButton} onClick={openAuthDialog}>
+          <UserIcon />
+          Войти
+        </div>
       </div>
+      <AuthDialog onClose={closeAuthDialog} visible={authVisible} />
     </Paper>
   );
 };
